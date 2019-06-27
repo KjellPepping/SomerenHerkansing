@@ -14,5 +14,6 @@ namespace SomerenModel
         public decimal Revenue { get; set; }
         public int Supply { get; set; }
         public int Id { get; set; }
+        //
     }
 }
