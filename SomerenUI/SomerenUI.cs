@@ -30,38 +30,55 @@ namespace SomerenUI
 
             if(panelName == "Dashboard")
             {
-
-                // hide all other panels
                 pnl_Students.Hide();
-
-                // show dashboard
+                pnl_Drinks.Hide();
                 pnl_Dashboard.Show();
                 img_Dashboard.Show();
             }
             else if(panelName == "Students")
             {
-                // hide all other panels
                 pnl_Dashboard.Hide();
                 img_Dashboard.Hide();
+                pnl_Drinks.Hide();
 
-                // show students
                 pnl_Students.Show();
 
-                
-
-                // fill the students listview within the students panel with a list of students
                 SomerenLogic.Student_Service studService = new SomerenLogic.Student_Service();
                 List<Student> studentList = studService.GetStudents();
 
-                // clear the listview before filling it again
-                listViewStudents.Clear();
+                listViewStudents.Items.Clear();
+               
 
                 foreach (SomerenModel.Student s in studentList)
                 {
-
-                    ListViewItem li = new ListViewItem(s.Name);
-                    listViewStudents.Items.Add(li);
+                    ListViewItem item = new ListViewItem(s.Name);
+                    item.SubItems.Add(s.Number.ToString());
+                    item.SubItems.Add(s.BirthDate.ToString());
+                    listViewStudents.Items.Add(item);
                 }
+            }
+
+            else if(panelName == "Drinks")
+            {
+                pnl_Dashboard.Hide();
+                img_Dashboard.Hide();
+                pnl_Students.Hide();
+
+                pnl_Drinks.Show();
+
+                SomerenLogic.Drink_Service drinkService = new SomerenLogic.Drink_Service();
+                List<Drink> drinkList = drinkService.GetDrinks();
+
+                listViewDrinks.Items.Clear();
+
+                foreach (SomerenModel.Drink d in drinkList)
+                {
+                    ListViewItem item = new ListViewItem(d.name);
+                    item.SubItems.Add(d.price.ToString());
+                    item.SubItems.Add(d.supply.ToString());
+                    listViewDrinks.Items.Add(item);
+                }
+
             }
         }
 
@@ -93,6 +110,11 @@ namespace SomerenUI
         private void studentsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             showPanel("Students");
+        }
+
+        private void drankvoorraadToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            showPanel("Drinks");
         }
     }
 }
