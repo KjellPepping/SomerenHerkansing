@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SomerenUI));
-            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem("");
-            System.Windows.Forms.ListViewItem listViewItem2 = new System.Windows.Forms.ListViewItem("");
+            System.Windows.Forms.ListViewItem listViewItem3 = new System.Windows.Forms.ListViewItem("");
+            System.Windows.Forms.ListViewItem listViewItem4 = new System.Windows.Forms.ListViewItem("");
             this.img_Dashboard = new System.Windows.Forms.PictureBox();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.dashboardToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -58,6 +58,7 @@
             this.lbl_Drinks = new System.Windows.Forms.Label();
             this.drankvoorraadToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.DrinkSupply = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.btn_Edit = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.img_Dashboard)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.pnl_Dashboard.SuspendLayout();
@@ -219,7 +220,7 @@
             this.studentDOB});
             this.listViewStudents.HideSelection = false;
             this.listViewStudents.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem1});
+            listViewItem3});
             this.listViewStudents.Location = new System.Drawing.Point(16, 42);
             this.listViewStudents.Name = "listViewStudents";
             this.listViewStudents.Size = new System.Drawing.Size(766, 307);
@@ -229,6 +230,7 @@
             // 
             // pnl_Drinks
             // 
+            this.pnl_Drinks.Controls.Add(this.btn_Edit);
             this.pnl_Drinks.Controls.Add(this.listViewDrinks);
             this.pnl_Drinks.Controls.Add(this.pictureBox2);
             this.pnl_Drinks.Controls.Add(this.lbl_Drinks);
@@ -245,13 +247,14 @@
             this.DrinkSupply});
             this.listViewDrinks.HideSelection = false;
             this.listViewDrinks.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem2});
+            listViewItem4});
             this.listViewDrinks.Location = new System.Drawing.Point(16, 42);
             this.listViewDrinks.Name = "listViewDrinks";
             this.listViewDrinks.Size = new System.Drawing.Size(766, 307);
             this.listViewDrinks.TabIndex = 5;
             this.listViewDrinks.UseCompatibleStateImageBehavior = false;
             this.listViewDrinks.View = System.Windows.Forms.View.Details;
+            this.listViewDrinks.SelectedIndexChanged += new System.EventHandler(this.listViewDrinks_SelectedIndexChanged_1);
             // 
             // DrinkName
             // 
@@ -294,6 +297,17 @@
             // 
             this.DrinkSupply.Text = "Supply";
             this.DrinkSupply.Width = 100;
+            // 
+            // btn_Edit
+            // 
+            this.btn_Edit.Enabled = false;
+            this.btn_Edit.Location = new System.Drawing.Point(16, 372);
+            this.btn_Edit.Name = "btn_Edit";
+            this.btn_Edit.Size = new System.Drawing.Size(107, 36);
+            this.btn_Edit.TabIndex = 6;
+            this.btn_Edit.Text = "Edit";
+            this.btn_Edit.UseVisualStyleBackColor = true;
+            this.btn_Edit.Click += new System.EventHandler(this.btn_Edit_Click);
             // 
             // SomerenUI
             // 
@@ -355,6 +369,7 @@
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Label lbl_Drinks;
         private System.Windows.Forms.ColumnHeader DrinkSupply;
+        private System.Windows.Forms.Button btn_Edit;
     }
 }
 

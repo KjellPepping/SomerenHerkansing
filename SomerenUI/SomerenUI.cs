@@ -73,9 +73,9 @@ namespace SomerenUI
 
                 foreach (SomerenModel.Drink d in drinkList)
                 {
-                    ListViewItem item = new ListViewItem(d.name);
-                    item.SubItems.Add(d.price.ToString());
-                    item.SubItems.Add(d.supply.ToString());
+                    ListViewItem item = new ListViewItem(d.Name);
+                    item.SubItems.Add(d.Price.ToString());
+                    item.SubItems.Add(d.Supply.ToString());
                     listViewDrinks.Items.Add(item);
                 }
 
@@ -115,6 +115,26 @@ namespace SomerenUI
         private void drankvoorraadToolStripMenuItem_Click(object sender, EventArgs e)
         {
             showPanel("Drinks");
+        }
+
+        private void listViewDrinks_SelectedIndexChanged(Object sender,EventArgs e)
+        {
+        
+        }
+
+        private void listViewDrinks_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
+            btn_Edit.Enabled = true;
+        }
+
+        private void btn_Edit_Click(object sender, EventArgs e)
+        {
+            var selectedItem = listViewDrinks.SelectedItems[0];
+            
+            DrinkDialog drinkDialog = new DrinkDialog();
+            Drink editedDrink = drinkDialog.getDrink();
+            drinkDialog.ShowDialog();
+            btn_Edit.Enabled = false;
         }
     }
 }

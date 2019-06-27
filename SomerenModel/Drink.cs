@@ -8,11 +8,11 @@ namespace SomerenModel
 {
     public class Drink
     {
-        public string name { get; set; }
-        public double price { get; set; }
-        public double alcoholPercent { get; set; }
-        public double revenue { get; set; }
-        public int supply { get; set; }
-        public int id { get; set; }
+        public string Name { get; set; }
+        public decimal Price { get; set; }
+        public decimal AlcoholPercent { get; set; }
+        public decimal Revenue { get; set; }
+        public int Supply { get; set; }
+        public int Id { get; set; }
     }
 }

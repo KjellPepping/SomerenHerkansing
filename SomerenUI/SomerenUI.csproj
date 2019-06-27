@@ -47,6 +47,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DrinkDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DrinkDialog.Designer.cs">
+      <DependentUpon>DrinkDialog.cs</DependentUpon>
+    </Compile>
     <Compile Include="SomerenUI.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -55,6 +61,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="DrinkDialog.resx">
+      <DependentUpon>DrinkDialog.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="SomerenUI.resx">
       <DependentUpon>SomerenUI.cs</DependentUpon>
     </EmbeddedResource>
