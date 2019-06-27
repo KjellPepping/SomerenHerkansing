@@ -34,12 +34,14 @@ namespace SomerenUI
                 pnl_Drinks.Hide();
                 pnl_Dashboard.Show();
                 img_Dashboard.Show();
+                pnl_Activities.Hide();
             }
             else if(panelName == "Students")
             {
                 pnl_Dashboard.Hide();
                 img_Dashboard.Hide();
                 pnl_Drinks.Hide();
+                pnl_Activities.Hide();
 
                 pnl_Students.Show();
 
@@ -63,6 +65,7 @@ namespace SomerenUI
                 pnl_Dashboard.Hide();
                 img_Dashboard.Hide();
                 pnl_Students.Hide();
+                pnl_Activities.Hide();
 
                 pnl_Drinks.Show();
 
@@ -76,6 +79,32 @@ namespace SomerenUI
                     ListViewItem item = new ListViewItem(d.Name);
                     item.SubItems.Add(d.Price.ToString());
                     item.SubItems.Add(d.Supply.ToString());
+                    listViewDrinks.Items.Add(item);
+                }
+
+            }
+
+
+            else if (panelName == "Activities")
+            {
+                pnl_Dashboard.Hide();
+                img_Dashboard.Hide();
+                pnl_Students.Hide();
+                pnl_Drinks.Hide();
+
+                pnl_Activities.Show();
+
+                SomerenLogic.Activity_Service actService = new SomerenLogic.Activity_Service();
+                List<Activity> activityList = actService.GetActivities();
+
+                listViewActivities.Items.Clear();
+
+                foreach (SomerenModel.Activity a in activityList)
+                {
+                    ListViewItem item = new ListViewItem(a.countStudents.ToString());
+                    item.SubItems.Add(a.countMentors.ToString());
+                    item.SubItems.Add(a.Id.ToString());
+                    item.SubItems.Add(a.Description);
                     listViewDrinks.Items.Add(item);
                 }
 
@@ -117,6 +146,10 @@ namespace SomerenUI
             showPanel("Drinks");
         }
 
+        private void activitiesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            showPanel("Activities");
+        }
         private void listViewDrinks_SelectedIndexChanged(Object sender,EventArgs e)
         {
         
@@ -136,5 +169,7 @@ namespace SomerenUI
             drinkDialog.ShowDialog();
             btn_Edit.Enabled = false;
         }
+
+  
     }
 }
