@@ -40,5 +40,15 @@ namespace SomerenLogic
                 //throw new Exception("Someren couldn't connect to the database");
             }
         }
+
+        public void UpdateActivity(Activity activity)
+        {
+            activity_db.UpdateActivity(activity);
+        }
+
+        public void DeleteActivity(int id)
+        {
+            activity_db.DeleteActivity(id);
+        }
     }
 }

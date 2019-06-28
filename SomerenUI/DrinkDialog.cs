@@ -24,6 +24,11 @@ namespace SomerenUI
             FillTextbox();
         }
 
+        public DrinkDialog()
+        {
+            InitializeComponent();
+        }
+
 
         private void btn_Cancel_Click(object sender, EventArgs e)
         {

@@ -7,11 +7,19 @@ using System.Data.SqlClient;
 using System.Data;
 using System.Collections.ObjectModel;
 using SomerenModel;
+using System.Configuration;
 
 namespace SomerenDAL
 {
     public class Activiteit_DAO : Base
     {
+        private SqlConnection dbConnection;
+
+        public Activiteit_DAO()
+        {
+            string connstring = ConfigurationManager.ConnectionStrings["SomerenDatabase"].ConnectionString;
+            dbConnection = new SqlConnection(connstring);
+        }
 
         public List<Activity> Db_Get_All_Activities()
         {
@@ -36,6 +44,27 @@ namespace SomerenDAL
                 Activities.Add(activity);
             }
             return Activities;
+        }
+
+        public void UpdateActivity(Activity activity)
+        {
+            dbConnection.Open();
+            SqlCommand command = new SqlCommand("UPDATE Activiteiten SET aantalStudenten = @aantalStudenten, aantalBegeleiders = @aantalBegeleiders, Omschrijving = @Omschrijving WHERE ID = @ID", dbConnection);
+            command.Parameters.AddWithValue("@aantalStudenten", activity.countStudents);
+            command.Parameters.AddWithValue("@aantalBegeleiders",activity.countMentors);
+            command.Parameters.AddWithValue("@Omschrijving", activity.Description);
+            command.Parameters.AddWithValue("@ID",activity.Id);
+            SqlDataReader reader = command.ExecuteReader();
+            dbConnection.Close();
+        }
+
+        public void DeleteActivity(int ActivityID)
+        {
+            dbConnection.Open();
+            SqlCommand command = new SqlCommand("DELETE FROM Activiteiten WHERE ID = @ID", dbConnection);
+            command.Parameters.AddWithValue("@ID", ActivityID);
+            SqlDataReader reader = command.ExecuteReader();
+            dbConnection.Close();
         }
 
     }

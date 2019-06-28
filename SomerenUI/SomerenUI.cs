@@ -17,6 +17,7 @@ namespace SomerenUI
     {
 
         private List<Drink> drinks = new List<Drink>();
+        private List<Activity> activities = new List<Activity>();
 
         public SomerenUI()
         {
@@ -100,6 +101,7 @@ namespace SomerenUI
 
                 SomerenLogic.Activity_Service actService = new SomerenLogic.Activity_Service();
                 List<Activity> activityList = actService.GetActivities();
+                activities = activityList;
 
                 listViewActivities.Items.Clear();
 
@@ -109,7 +111,7 @@ namespace SomerenUI
                     item.SubItems.Add(a.countMentors.ToString());
                     item.SubItems.Add(a.Id.ToString());
                     item.SubItems.Add(a.Description);
-                    listViewDrinks.Items.Add(item);
+                    listViewActivities.Items.Add(item);
                 }
 
             }
@@ -154,10 +156,6 @@ namespace SomerenUI
         {
             showPanel("Activities");
         }
-        private void listViewDrinks_SelectedIndexChanged(Object sender,EventArgs e)
-        {
-        
-        }
 
         private void listViewDrinks_SelectedIndexChanged_1(object sender, EventArgs e)
         {
@@ -184,5 +182,38 @@ namespace SomerenUI
             btn_Remove_Drink.Enabled = false;
             showPanel("Drinks");
         }
-    }
+
+        private void btn_Add_Drink_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btn_Edit_Activities_Click(object sender, EventArgs e)
+        {
+            var selectedItem = listViewActivities.SelectedItems[0];
+            Activity selectedActivity = activities.Where(t => t.countStudents == int.Parse(selectedItem.Text)).FirstOrDefault();
+            ActivityDialog activityDialog = new ActivityDialog(selectedActivity);
+            activityDialog.Show();
+            btn_Edit_Activities.Enabled = false;
+            showPanel("Activities");
+        }
+
+        private void listViewActivities_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            btn_Edit_Activities.Enabled = true;
+            btn_Remove_Activity.Enabled = true;
+        }
+
+        private void btn_Remove_Activity_Click(object sender, EventArgs e)
+        {
+            var selectedItem = listViewActivities.SelectedItems[0];
+            Activity selectedActivity = activities.Where(t => t.countStudents == int.Parse(selectedItem.Text)).FirstOrDefault();
+
+            DialogResult dr = MessageBox.Show("Do you want to remove this activity?", "Removing activity", MessageBoxButtons.YesNo);
+            if(dr == DialogResult.Yes)
+            {
+                Activity_Service actService = new Activity_Service();
+                actService.DeleteActivity(selectedActivity.Id);            }
+        }
+    }   
 }
