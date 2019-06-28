@@ -15,14 +15,19 @@ namespace SomerenUI
 {
     public partial class SomerenUI : Form
     {
-
+        private User currentUser;
         private List<Drink> drinks = new List<Drink>();
         private List<Activity> activities = new List<Activity>();
+       
 
-        public SomerenUI()
+       
+        public SomerenUI(User currentUser)
         {
             InitializeComponent();
+            this.currentUser = currentUser;
         }
+
+        
 
         private void SomerenUI_Load(object sender, EventArgs e)
         {
