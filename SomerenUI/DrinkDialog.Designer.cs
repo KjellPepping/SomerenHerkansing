@@ -108,6 +108,7 @@
             this.btn_Submit.TabIndex = 7;
             this.btn_Submit.Text = "Submit";
             this.btn_Submit.UseVisualStyleBackColor = true;
+            this.btn_Submit.Click += new System.EventHandler(this.btn_Submit_Click);
             // 
             // btn_Cancel
             // 
@@ -117,6 +118,7 @@
             this.btn_Cancel.TabIndex = 8;
             this.btn_Cancel.Text = "Cancel";
             this.btn_Cancel.UseVisualStyleBackColor = true;
+            this.btn_Cancel.Click += new System.EventHandler(this.btn_Cancel_Click);
             // 
             // DrinkDialog
             // 

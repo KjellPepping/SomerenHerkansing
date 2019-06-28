@@ -15,6 +15,9 @@ namespace SomerenUI
 {
     public partial class SomerenUI : Form
     {
+
+        private List<Drink> drinks = new List<Drink>();
+
         public SomerenUI()
         {
             InitializeComponent();
@@ -71,6 +74,7 @@ namespace SomerenUI
 
                 SomerenLogic.Drink_Service drinkService = new SomerenLogic.Drink_Service();
                 List<Drink> drinkList = drinkService.GetDrinks();
+                drinks = drinkList;
 
                 listViewDrinks.Items.Clear();
 
@@ -157,19 +161,28 @@ namespace SomerenUI
 
         private void listViewDrinks_SelectedIndexChanged_1(object sender, EventArgs e)
         {
-            btn_Edit.Enabled = true;
+            btn_Edit_Drink.Enabled = true;
+            btn_Remove_Drink.Enabled = true;
         }
 
         private void btn_Edit_Click(object sender, EventArgs e)
         {
             var selectedItem = listViewDrinks.SelectedItems[0];
-            
-            DrinkDialog drinkDialog = new DrinkDialog();
-            Drink editedDrink = drinkDialog.getDrink();
-            drinkDialog.ShowDialog();
-            btn_Edit.Enabled = false;
+            Drink selectedDrink = drinks.Where(t => t.Name == selectedItem.Text).FirstOrDefault();
+            DrinkDialog drinkDialog = new DrinkDialog(selectedDrink);
+            drinkDialog.Show();
+            btn_Edit_Drink.Enabled = false;
+            showPanel("Drinks");
         }
 
-  
+        private void btn_Remove_Drink_Click(object sender, EventArgs e)
+        {
+            var selectedItem = listViewDrinks.SelectedItems[0];
+            Drink selectedDrink = drinks.Where(t => t.Name == selectedItem.Text).FirstOrDefault();
+            Drink_Service drinkSer = new Drink_Service();
+            drinkSer.DeleteDrink(selectedDrink.Name);
+            btn_Remove_Drink.Enabled = false;
+            showPanel("Drinks");
+        }
     }
 }

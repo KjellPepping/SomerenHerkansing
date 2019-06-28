@@ -7,11 +7,19 @@ using System.Data.SqlClient;
 using System.Data;
 using System.Collections.ObjectModel;
 using SomerenModel;
+using System.Configuration;
 
 namespace SomerenDAL
 {
     public class Drink_DAO : Base
     {
+        private SqlConnection dbConnection;
+
+        public Drink_DAO()
+        {
+            string connstring = ConfigurationManager.ConnectionStrings["SomerenDatabase"].ConnectionString;
+            dbConnection = new SqlConnection(connstring);
+        }
 
         public List<Drink> Db_Get_All_Drinks()
         {
@@ -38,6 +46,27 @@ namespace SomerenDAL
                 Drinks.Add(drink);
             }
             return Drinks;
+        }
+
+        public void UpdateDrink(Drink drink)
+        {
+            dbConnection.Open();
+            SqlCommand command = new SqlCommand("UPDATE Drankjes SET Naam = @Naam, Verkoopprijs = @Verkoopprijs, Voorraad = @Voorraad  WHERE Id = @Id", dbConnection);
+            command.Parameters.AddWithValue("@Naam",drink.Name);
+            command.Parameters.AddWithValue("@Verkoopprijs",drink.Price);
+            command.Parameters.AddWithValue("@Voorraad",drink.Supply);
+            command.Parameters.AddWithValue("@Id",drink.Id);
+            SqlDataReader reader = command.ExecuteReader();
+            dbConnection.Close();
+        }
+
+        public void DeleteDrink(string drinkName)
+        {
+            dbConnection.Open();
+            SqlCommand command = new SqlCommand("DELETE FROM Drankjes WHERE CONVERT(VARCHAR,Naam) = @Naam",dbConnection);
+            command.Parameters.AddWithValue("@Naam", drinkName.ToString());
+            SqlDataReader reader = command.ExecuteReader();
+            dbConnection.Close();
         }
 
     }
