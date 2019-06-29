@@ -190,7 +190,8 @@ namespace SomerenUI
 
         private void btn_Add_Drink_Click(object sender, EventArgs e)
         {
-
+            DrinkDialog drinkDialog = new DrinkDialog();
+            drinkDialog.Show();
         }
 
         private void btn_Edit_Activities_Click(object sender, EventArgs e)
@@ -200,7 +201,6 @@ namespace SomerenUI
             ActivityDialog activityDialog = new ActivityDialog(selectedActivity);
             activityDialog.Show();
             btn_Edit_Activities.Enabled = false;
-            showPanel("Activities");
         }
 
         private void listViewActivities_SelectedIndexChanged(object sender, EventArgs e)
@@ -219,6 +219,12 @@ namespace SomerenUI
             {
                 Activity_Service actService = new Activity_Service();
                 actService.DeleteActivity(selectedActivity.Id);            }
+        }
+
+        private void btn_Add_Activity_Click(object sender, EventArgs e)
+        {
+            ActivityDialog activityDialog = new ActivityDialog();
+            activityDialog.Show();
         }
     }   
 }

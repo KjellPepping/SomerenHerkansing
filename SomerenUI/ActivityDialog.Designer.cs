@@ -39,6 +39,7 @@
             this.lbl_EditActivity = new System.Windows.Forms.Label();
             this.textBox_Act_Mentors = new System.Windows.Forms.TextBox();
             this.lbl_MentorAmount = new System.Windows.Forms.Label();
+            this.btn_Act_Add = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btn_Act_Cancel
@@ -139,11 +140,22 @@
             this.lbl_MentorAmount.TabIndex = 19;
             this.lbl_MentorAmount.Text = "Amount of mentors:";
             // 
+            // btn_Act_Add
+            // 
+            this.btn_Act_Add.Location = new System.Drawing.Point(24, 316);
+            this.btn_Act_Add.Name = "btn_Act_Add";
+            this.btn_Act_Add.Size = new System.Drawing.Size(75, 23);
+            this.btn_Act_Add.TabIndex = 20;
+            this.btn_Act_Add.Text = "Add";
+            this.btn_Act_Add.UseVisualStyleBackColor = true;
+            this.btn_Act_Add.Click += new System.EventHandler(this.btn_Act_Add_Click);
+            // 
             // ActivityDialog
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(347, 450);
+            this.Controls.Add(this.btn_Act_Add);
             this.Controls.Add(this.lbl_MentorAmount);
             this.Controls.Add(this.textBox_Act_Mentors);
             this.Controls.Add(this.btn_Act_Cancel);
@@ -176,5 +188,6 @@
         private System.Windows.Forms.Label lbl_EditActivity;
         private System.Windows.Forms.TextBox textBox_Act_Mentors;
         private System.Windows.Forms.Label lbl_MentorAmount;
+        private System.Windows.Forms.Button btn_Act_Add;
     }
 }

@@ -14,6 +14,8 @@ namespace SomerenDAL
     public class Drink_DAO : Base
     {
         private SqlConnection dbConnection;
+        Random rnd = new Random();
+       
 
         public Drink_DAO()
         {
@@ -68,6 +70,19 @@ namespace SomerenDAL
             SqlDataReader reader = command.ExecuteReader();
             dbConnection.Close();
         }
+
+        public void AddDrink(Drink drink)
+        {
+            dbConnection.Open();
+            SqlCommand command = new SqlCommand("INSERT INTO Drankjes ( Naam, Verkoopprijs, Voorraad, ID ) VALUES ( @Naam, @Verkoopprijs, @Voorraad, @Id)", dbConnection);
+            command.Parameters.AddWithValue("@Naam", drink.Name);
+            command.Parameters.AddWithValue("@Verkoopprijs", drink.Price);
+            command.Parameters.AddWithValue("@Voorraad", drink.Supply);
+            command.Parameters.AddWithValue("@Id", rnd.Next(1,101));
+            SqlDataReader reader = command.ExecuteReader();
+            dbConnection.Close();
+        }
+
 
     }
 }

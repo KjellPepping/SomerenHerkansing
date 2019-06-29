@@ -51,6 +51,12 @@ namespace SomerenLogic
             drink_db.UpdateDrink(drink);
         }
 
+        public void AddDrink(Drink drink)
+        {
+            drink_db.AddDrink(drink);
+        }
+
+
         public void DeleteDrink(string drinkName)
         {
             drink_db.DeleteDrink(drinkName);

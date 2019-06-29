@@ -13,7 +13,7 @@ namespace SomerenUI
 {
     public partial class DrinkDialog : Form
     {
-        Drink currentDrink;
+        Drink currentDrink = new Drink();
       
         
 
@@ -27,6 +27,9 @@ namespace SomerenUI
         public DrinkDialog()
         {
             InitializeComponent();
+            btn_Dialog_Drink_Add.Enabled = true;
+            btn_Dialog_Drink_Submit.Enabled = false;
+            lbl_EditDrink.Text = "Add Drink";
         }
 
 
@@ -50,6 +53,17 @@ namespace SomerenUI
 
             SomerenLogic.Drink_Service drink_Service = new SomerenLogic.Drink_Service();
             drink_Service.UpdateDrink(currentDrink);
+            this.Close();
+        }
+
+        private void btn_Dialog_Drink_Add_Click(object sender, EventArgs e)
+        {
+            currentDrink.Name = textBox_Name.Text;
+            currentDrink.Price = decimal.Parse(textBox_Price.Text);
+            currentDrink.Supply = int.Parse(textBox_Supply.Text);
+
+            SomerenLogic.Drink_Service drink_Service = new SomerenLogic.Drink_Service();
+            drink_Service.AddDrink(currentDrink);
             this.Close();
         }
     }

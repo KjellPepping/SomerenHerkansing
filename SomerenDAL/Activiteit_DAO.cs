@@ -67,5 +67,17 @@ namespace SomerenDAL
             dbConnection.Close();
         }
 
+        public void AddActivity(Activity activity)
+        {
+            dbConnection.Open();
+            SqlCommand command = new SqlCommand("INSERT INTO Activiteiten ( aantalStudenten, aantalBegeleiders, Omschrijving, ID ) VALUES ( @aantalstudenten, @aantalBegeleiders, @Omschrijving, @ID)",dbConnection);
+            command.Parameters.AddWithValue("@aantalStudenten", activity.countStudents);
+            command.Parameters.AddWithValue("@aantalBegeleiders", activity.countMentors);
+            command.Parameters.AddWithValue("@Omschrijving", activity.Description);
+            command.Parameters.AddWithValue("@ID", activity.Id);
+            SqlDataReader reader = command.ExecuteReader();
+            dbConnection.Close();
+        }
+
     }
 }

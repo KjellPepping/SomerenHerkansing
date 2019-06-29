@@ -40,7 +40,7 @@
             // 
             // btn_Login_Cancel
             // 
-            this.btn_Login_Cancel.Location = new System.Drawing.Point(450, 269);
+            this.btn_Login_Cancel.Location = new System.Drawing.Point(228, 214);
             this.btn_Login_Cancel.Name = "btn_Login_Cancel";
             this.btn_Login_Cancel.Size = new System.Drawing.Size(75, 23);
             this.btn_Login_Cancel.TabIndex = 17;
@@ -50,7 +50,7 @@
             // 
             // btn_Login
             // 
-            this.btn_Login.Location = new System.Drawing.Point(247, 269);
+            this.btn_Login.Location = new System.Drawing.Point(25, 214);
             this.btn_Login.Name = "btn_Login";
             this.btn_Login.Size = new System.Drawing.Size(75, 23);
             this.btn_Login.TabIndex = 16;
@@ -62,7 +62,7 @@
             // 
             this.lbl_Password.AutoSize = true;
             this.lbl_Password.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.150944F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_Password.Location = new System.Drawing.Point(244, 193);
+            this.lbl_Password.Location = new System.Drawing.Point(22, 138);
             this.lbl_Password.Name = "lbl_Password";
             this.lbl_Password.Size = new System.Drawing.Size(71, 16);
             this.lbl_Password.TabIndex = 14;
@@ -70,7 +70,7 @@
             // 
             // textBox_Password
             // 
-            this.textBox_Password.Location = new System.Drawing.Point(247, 212);
+            this.textBox_Password.Location = new System.Drawing.Point(25, 157);
             this.textBox_Password.Name = "textBox_Password";
             this.textBox_Password.Size = new System.Drawing.Size(278, 20);
             this.textBox_Password.TabIndex = 12;
@@ -79,7 +79,7 @@
             // 
             this.lbl_Username.AutoSize = true;
             this.lbl_Username.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.150944F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_Username.Location = new System.Drawing.Point(244, 139);
+            this.lbl_Username.Location = new System.Drawing.Point(22, 84);
             this.lbl_Username.Name = "lbl_Username";
             this.lbl_Username.Size = new System.Drawing.Size(74, 16);
             this.lbl_Username.TabIndex = 11;
@@ -87,7 +87,7 @@
             // 
             // textBox_Username
             // 
-            this.textBox_Username.Location = new System.Drawing.Point(247, 158);
+            this.textBox_Username.Location = new System.Drawing.Point(25, 103);
             this.textBox_Username.Name = "textBox_Username";
             this.textBox_Username.Size = new System.Drawing.Size(278, 20);
             this.textBox_Username.TabIndex = 10;
@@ -96,7 +96,7 @@
             // 
             this.lbl_Login.AutoSize = true;
             this.lbl_Login.Font = new System.Drawing.Font("Microsoft Sans Serif", 17F);
-            this.lbl_Login.Location = new System.Drawing.Point(242, 74);
+            this.lbl_Login.Location = new System.Drawing.Point(20, 19);
             this.lbl_Login.Name = "lbl_Login";
             this.lbl_Login.Size = new System.Drawing.Size(75, 30);
             this.lbl_Login.TabIndex = 9;
@@ -106,7 +106,7 @@
             // 
             this.lbl_Warning.AutoSize = true;
             this.lbl_Warning.ForeColor = System.Drawing.Color.Red;
-            this.lbl_Warning.Location = new System.Drawing.Point(247, 328);
+            this.lbl_Warning.Location = new System.Drawing.Point(54, 256);
             this.lbl_Warning.Name = "lbl_Warning";
             this.lbl_Warning.Size = new System.Drawing.Size(228, 15);
             this.lbl_Warning.TabIndex = 18;
@@ -117,7 +117,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(343, 292);
             this.Controls.Add(this.lbl_Warning);
             this.Controls.Add(this.btn_Login_Cancel);
             this.Controls.Add(this.btn_Login);

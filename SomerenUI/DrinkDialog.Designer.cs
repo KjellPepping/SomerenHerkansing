@@ -35,8 +35,9 @@
             this.textBox_Supply = new System.Windows.Forms.TextBox();
             this.lbl_DrinkPrice = new System.Windows.Forms.Label();
             this.lbl_DrinkSupply = new System.Windows.Forms.Label();
-            this.btn_Submit = new System.Windows.Forms.Button();
+            this.btn_Dialog_Drink_Submit = new System.Windows.Forms.Button();
             this.btn_Cancel = new System.Windows.Forms.Button();
+            this.btn_Dialog_Drink_Add = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lbl_EditDrink
@@ -100,15 +101,15 @@
             this.lbl_DrinkSupply.TabIndex = 6;
             this.lbl_DrinkSupply.Text = "Drink supply:";
             // 
-            // btn_Submit
+            // btn_Dialog_Drink_Submit
             // 
-            this.btn_Submit.Location = new System.Drawing.Point(24, 276);
-            this.btn_Submit.Name = "btn_Submit";
-            this.btn_Submit.Size = new System.Drawing.Size(75, 23);
-            this.btn_Submit.TabIndex = 7;
-            this.btn_Submit.Text = "Submit";
-            this.btn_Submit.UseVisualStyleBackColor = true;
-            this.btn_Submit.Click += new System.EventHandler(this.btn_Submit_Click);
+            this.btn_Dialog_Drink_Submit.Location = new System.Drawing.Point(24, 276);
+            this.btn_Dialog_Drink_Submit.Name = "btn_Dialog_Drink_Submit";
+            this.btn_Dialog_Drink_Submit.Size = new System.Drawing.Size(75, 23);
+            this.btn_Dialog_Drink_Submit.TabIndex = 7;
+            this.btn_Dialog_Drink_Submit.Text = "Submit";
+            this.btn_Dialog_Drink_Submit.UseVisualStyleBackColor = true;
+            this.btn_Dialog_Drink_Submit.Click += new System.EventHandler(this.btn_Submit_Click);
             // 
             // btn_Cancel
             // 
@@ -120,14 +121,25 @@
             this.btn_Cancel.UseVisualStyleBackColor = true;
             this.btn_Cancel.Click += new System.EventHandler(this.btn_Cancel_Click);
             // 
+            // btn_Dialog_Drink_Add
+            // 
+            this.btn_Dialog_Drink_Add.Location = new System.Drawing.Point(24, 276);
+            this.btn_Dialog_Drink_Add.Name = "btn_Dialog_Drink_Add";
+            this.btn_Dialog_Drink_Add.Size = new System.Drawing.Size(75, 23);
+            this.btn_Dialog_Drink_Add.TabIndex = 9;
+            this.btn_Dialog_Drink_Add.Text = "Add";
+            this.btn_Dialog_Drink_Add.UseVisualStyleBackColor = true;
+            this.btn_Dialog_Drink_Add.Click += new System.EventHandler(this.btn_Dialog_Drink_Add_Click);
+            // 
             // DrinkDialog
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.ClientSize = new System.Drawing.Size(345, 330);
+            this.Controls.Add(this.btn_Dialog_Drink_Add);
             this.Controls.Add(this.btn_Cancel);
-            this.Controls.Add(this.btn_Submit);
+            this.Controls.Add(this.btn_Dialog_Drink_Submit);
             this.Controls.Add(this.lbl_DrinkSupply);
             this.Controls.Add(this.lbl_DrinkPrice);
             this.Controls.Add(this.textBox_Supply);
@@ -152,7 +164,8 @@
         private System.Windows.Forms.TextBox textBox_Supply;
         private System.Windows.Forms.Label lbl_DrinkPrice;
         private System.Windows.Forms.Label lbl_DrinkSupply;
-        private System.Windows.Forms.Button btn_Submit;
+        private System.Windows.Forms.Button btn_Dialog_Drink_Submit;
         private System.Windows.Forms.Button btn_Cancel;
+        private System.Windows.Forms.Button btn_Dialog_Drink_Add;
     }
 }

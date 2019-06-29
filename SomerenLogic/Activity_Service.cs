@@ -50,5 +50,10 @@ namespace SomerenLogic
         {
             activity_db.DeleteActivity(id);
         }
+
+        public void AddActivity(Activity activity)
+        {
+            activity_db.AddActivity(activity);
+        }
     }
 }
