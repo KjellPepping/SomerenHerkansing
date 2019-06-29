@@ -20,13 +20,14 @@ namespace SomerenUI
 
         SomerenLogic.Student_Service studService = new SomerenLogic.Student_Service();
         SomerenLogic.Drink_Service drinkService = new SomerenLogic.Drink_Service();
-        //SomerenLogic.Activity_Service actService = new SomerenLogic.Activity_Service();
-        
-       
+        SomerenLogic.Activity_Service actService = new SomerenLogic.Activity_Service();
+
+
         public SomerenUI(User currentUser)
         {
             InitializeComponent();
             this.currentUser = currentUser;
+            currentUser.IsAdmin = true;
         }
 
         private void SomerenUI_Load(object sender, EventArgs e)
@@ -34,9 +35,18 @@ namespace SomerenUI
             showPanel("Dashboard");
         }
 
-        private void showPanel(string panelName)
+        private void InitAddButtons(User user)
         {
+            if (currentUser.IsAdmin == false)
+            {
+                btn_Add_Activity.Enabled = false;
+                btn_Add_Drink.Enabled = false;
+            }
 
+        }
+
+        public void showPanel(string panelName)
+        {
             if(panelName == "Dashboard")
             {
                 pnl_Students.Hide();
@@ -148,7 +158,7 @@ namespace SomerenUI
 
         private void listViewDrinks_SelectedIndexChanged_1(object sender, EventArgs e)
         {
-            if(currentUser.isAdmin)
+            if(currentUser.IsAdmin)
                 {
                   btn_Edit_Drink.Enabled = true;
                   btn_Remove_Drink.Enabled = true;
@@ -162,7 +172,6 @@ namespace SomerenUI
             DrinkDialog drinkDialog = new DrinkDialog(selectedDrink);
             drinkDialog.Show();
             btn_Edit_Drink.Enabled = false;
-            showPanel("Drinks");
         }
 
         private void btn_Remove_Drink_Click(object sender, EventArgs e)
@@ -172,7 +181,6 @@ namespace SomerenUI
             Drink_Service drinkSer = new Drink_Service();
             drinkSer.DeleteDrink(selectedDrink.Name);
             btn_Remove_Drink.Enabled = false;
-            showPanel("Drinks");
         }
 
         private void btn_Add_Drink_Click(object sender, EventArgs e)
@@ -192,10 +200,10 @@ namespace SomerenUI
 
         private void listViewActivities_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if(currentUser.isAdmin)
+            if(currentUser.IsAdmin)
                 {
-            btn_Edit_Activities.Enabled = true;
-            btn_Remove_Activity.Enabled = true;
+                  btn_Edit_Activities.Enabled = true;
+                  btn_Remove_Activity.Enabled = true;
                 }
         }
 

@@ -19,6 +19,9 @@ namespace SomerenUI
         {
             InitializeComponent();
             this.currentActivity = currentActivity;
+            lbl_EditActivity.Text = "Edit Activity";
+            btn_Act_Add.Visible = false;
+            btn_Act_Submit.Visible = true;
             FillTextBox();
         }
 
@@ -26,8 +29,8 @@ namespace SomerenUI
         {
             InitializeComponent();
             lbl_EditActivity.Text = "Add Activity";
-            btn_Act_Add.Enabled = true;
-            btn_Act_Submit.Enabled = false;
+            btn_Act_Add.Visible = true;
+            btn_Act_Submit.Visible = false;
         }
 
         private void FillTextBox()

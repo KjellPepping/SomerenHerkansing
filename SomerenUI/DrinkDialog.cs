@@ -21,14 +21,17 @@ namespace SomerenUI
         {
             InitializeComponent();
             this.currentDrink = currentDrink;
+            btn_Dialog_Drink_Add.Visible = false;
+            btn_Dialog_Drink_Submit.Visible = true;
+            lbl_EditDrink.Text = "Edit Drink";
             FillTextbox();
         }
 
         public DrinkDialog()
         {
             InitializeComponent();
-            btn_Dialog_Drink_Add.Enabled = true;
-            btn_Dialog_Drink_Submit.Enabled = false;
+            btn_Dialog_Drink_Add.Visible = true;
+            btn_Dialog_Drink_Submit.Visible = false;
             lbl_EditDrink.Text = "Add Drink";
         }
 

@@ -99,7 +99,7 @@
             this.menuStrip1.Size = new System.Drawing.Size(962, 27);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
-            // 
+
             // dashboardToolStripMenuItem
             // 
             this.dashboardToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -109,7 +109,6 @@
             this.dashboardToolStripMenuItem.Name = "dashboardToolStripMenuItem";
             this.dashboardToolStripMenuItem.Size = new System.Drawing.Size(89, 23);
             this.dashboardToolStripMenuItem.Text = "Application";
-            this.dashboardToolStripMenuItem.Click += new System.EventHandler(this.dashboardToolStripMenuItem_Click);
             // 
             // dashboardToolStripMenuItem1
             // 
@@ -180,7 +179,6 @@
             this.lbl_Dashboard.Size = new System.Drawing.Size(212, 15);
             this.lbl_Dashboard.TabIndex = 1;
             this.lbl_Dashboard.Text = "Welcome to the Someren Application!";
-            this.lbl_Dashboard.Click += new System.EventHandler(this.label1_Click);
             // 
             // img_Dashboard
             // 

@@ -74,11 +74,13 @@ namespace SomerenDAL
         public void AddDrink(Drink drink)
         {
             dbConnection.Open();
-            SqlCommand command = new SqlCommand("INSERT INTO Drankjes ( Naam, Verkoopprijs, Voorraad, ID ) VALUES ( @Naam, @Verkoopprijs, @Voorraad, @Id)", dbConnection);
+            SqlCommand command = new SqlCommand("INSERT INTO Drankjes ( Naam, Verkoopprijs, Voorraad, ID, Omzet, Alcohol ) VALUES ( @Naam, @Verkoopprijs, @Voorraad, @Id, @Omzet, @Alcohol)", dbConnection);
             command.Parameters.AddWithValue("@Naam", drink.Name);
             command.Parameters.AddWithValue("@Verkoopprijs", drink.Price);
             command.Parameters.AddWithValue("@Voorraad", drink.Supply);
             command.Parameters.AddWithValue("@Id", rnd.Next(1,101));
+            command.Parameters.AddWithValue("@Omzet", 0);
+            command.Parameters.AddWithValue("@Alcohol",0);
             SqlDataReader reader = command.ExecuteReader();
             dbConnection.Close();
         }
