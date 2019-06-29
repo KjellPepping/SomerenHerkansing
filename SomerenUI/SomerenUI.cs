@@ -18,16 +18,16 @@ namespace SomerenUI
         private User currentUser;
         private List<Drink> drinks = new List<Drink>();
         private List<Activity> activities = new List<Activity>();
-       
 
+        SomerenLogic.Student_Service studService = new SomerenLogic.Student_Service();
+        SomerenLogic.Drink_Service drinkService = new SomerenLogic.Drink_Service();
+        
        
         public SomerenUI(User currentUser)
         {
             InitializeComponent();
             this.currentUser = currentUser;
         }
-
-        
 
         private void SomerenUI_Load(object sender, EventArgs e)
         {
@@ -54,12 +54,10 @@ namespace SomerenUI
 
                 pnl_Students.Show();
 
-                SomerenLogic.Student_Service studService = new SomerenLogic.Student_Service();
                 List<Student> studentList = studService.GetStudents();
 
                 listViewStudents.Items.Clear();
                
-
                 foreach (SomerenModel.Student s in studentList)
                 {
                     ListViewItem item = new ListViewItem(s.Name);
@@ -78,7 +76,6 @@ namespace SomerenUI
 
                 pnl_Drinks.Show();
 
-                SomerenLogic.Drink_Service drinkService = new SomerenLogic.Drink_Service();
                 List<Drink> drinkList = drinkService.GetDrinks();
                 drinks = drinkList;
 
@@ -91,9 +88,7 @@ namespace SomerenUI
                     item.SubItems.Add(d.Supply.ToString());
                     listViewDrinks.Items.Add(item);
                 }
-
             }
-
 
             else if (panelName == "Activities")
             {
@@ -104,7 +99,7 @@ namespace SomerenUI
 
                 pnl_Activities.Show();
 
-                SomerenLogic.Activity_Service actService = new SomerenLogic.Activity_Service();
+                
                 List<Activity> activityList = actService.GetActivities();
                 activities = activityList;
 
