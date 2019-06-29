@@ -10,7 +10,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-
 namespace SomerenUI
 {
     public partial class SomerenUI : Form
@@ -21,6 +20,7 @@ namespace SomerenUI
 
         SomerenLogic.Student_Service studService = new SomerenLogic.Student_Service();
         SomerenLogic.Drink_Service drinkService = new SomerenLogic.Drink_Service();
+        //SomerenLogic.Activity_Service actService = new SomerenLogic.Activity_Service();
         
        
         public SomerenUI(User currentUser)
@@ -113,13 +113,7 @@ namespace SomerenUI
                     item.SubItems.Add(a.Description);
                     listViewActivities.Items.Add(item);
                 }
-
             }
-        }
-
-        private void dashboardToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-           //
         }
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
@@ -132,24 +126,9 @@ namespace SomerenUI
             showPanel("Dashboard");
         }
 
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void img_Dashboard_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show("What happens in Someren, stays in Someren!");
-        }
-
         private void studentsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             showPanel("Students");
-        }
-
-        private void drankvoorraadToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            showPanel("Drinks");
         }
 
         private void activitiesToolStripMenuItem_Click(object sender, EventArgs e)
@@ -157,10 +136,23 @@ namespace SomerenUI
             showPanel("Activities");
         }
 
+        private void drankvoorraadToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            showPanel("Drinks");
+        }
+
+        private void img_Dashboard_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("What happens in Someren, stays in Someren!");
+        }
+
         private void listViewDrinks_SelectedIndexChanged_1(object sender, EventArgs e)
         {
-            btn_Edit_Drink.Enabled = true;
-            btn_Remove_Drink.Enabled = true;
+            if(currentUser.isAdmin)
+                {
+                  btn_Edit_Drink.Enabled = true;
+                  btn_Remove_Drink.Enabled = true;
+                }
         }
 
         private void btn_Edit_Click(object sender, EventArgs e)
@@ -200,8 +192,11 @@ namespace SomerenUI
 
         private void listViewActivities_SelectedIndexChanged(object sender, EventArgs e)
         {
+            if(currentUser.isAdmin)
+                {
             btn_Edit_Activities.Enabled = true;
             btn_Remove_Activity.Enabled = true;
+                }
         }
 
         private void btn_Remove_Activity_Click(object sender, EventArgs e)
