@@ -21,7 +21,9 @@ namespace SomerenUI
         SomerenLogic.Student_Service studService = new SomerenLogic.Student_Service();
         SomerenLogic.Drink_Service drinkService = new SomerenLogic.Drink_Service();
         SomerenLogic.Activity_Service actService = new SomerenLogic.Activity_Service();
+        SomerenLogic.Lecturer_Service lectService = new SomerenLogic.Lecturer_Service();
 
+        public ListView ListView { get; private set; }
 
         public SomerenUI(User currentUser)
         {
@@ -47,27 +49,29 @@ namespace SomerenUI
 
         public void showPanel(string panelName)
         {
-            if(panelName == "Dashboard")
+            if (panelName == "Dashboard")
             {
                 pnl_Students.Hide();
+                pnl_Lecturer.Hide();
                 pnl_Drinks.Hide();
                 pnl_Dashboard.Show();
                 img_Dashboard.Show();
                 pnl_Activities.Hide();
             }
-            else if(panelName == "Students")
+            else if (panelName == "Students")
             {
                 pnl_Dashboard.Hide();
                 img_Dashboard.Hide();
                 pnl_Drinks.Hide();
                 pnl_Activities.Hide();
+                pnl_Lecturer.Hide();
 
                 pnl_Students.Show();
 
                 List<Student> studentList = studService.GetStudents();
 
                 listViewStudents.Items.Clear();
-               
+
                 foreach (SomerenModel.Student s in studentList)
                 {
                     ListViewItem item = new ListViewItem(s.Name);
@@ -77,12 +81,13 @@ namespace SomerenUI
                 }
             }
 
-            else if(panelName == "Drinks")
+            else if (panelName == "Drinks")
             {
                 pnl_Dashboard.Hide();
                 img_Dashboard.Hide();
                 pnl_Students.Hide();
                 pnl_Activities.Hide();
+                pnl_Lecturer.Hide();
 
                 pnl_Drinks.Show();
 
@@ -106,10 +111,11 @@ namespace SomerenUI
                 img_Dashboard.Hide();
                 pnl_Students.Hide();
                 pnl_Drinks.Hide();
+                pnl_Lecturer.Hide();
 
                 pnl_Activities.Show();
 
-                
+
                 List<Activity> activityList = actService.GetActivities();
                 activities = activityList;
 
@@ -122,7 +128,32 @@ namespace SomerenUI
                     item.SubItems.Add(a.Id.ToString());
                     item.SubItems.Add(a.Description);
                     listViewActivities.Items.Add(item);
+
                 }
+            }
+            else if (panelName == "Teachers")
+            {
+                pnl_Dashboard.Hide();
+                img_Dashboard.Hide();
+                pnl_Students.Hide();
+                pnl_Drinks.Hide();
+                pnl_Activities.Hide();
+
+                pnl_Lecturer.Show();
+
+                List<Teacher> teachers = lectService.Get_All_lecturers();
+
+                listViewteachers.Clear();
+
+                foreach (SomerenModel.Teacher t in teachers)
+                {
+                    ListViewItem row = new ListViewItem(t.Vak);
+                    row.SubItems.Add(t.Name);
+                    row.SubItems.Add(t.Leeftijd.ToString());
+                    row.SubItems.Add(t.Number.ToString());
+                    listViewStudents.Items.Add(row);
+                }
+
             }
         }
 
@@ -223,6 +254,31 @@ namespace SomerenUI
         {
             ActivityDialog activityDialog = new ActivityDialog();
             activityDialog.Show();
+        }
+
+        private void LecturersToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            showPanel("Teachers");
+        }
+
+        private void ListViewStudents_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ListView1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Pnl_Lecturer_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void Pnl_Students_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }   
 }
