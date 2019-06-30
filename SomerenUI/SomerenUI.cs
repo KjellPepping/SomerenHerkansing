@@ -29,7 +29,7 @@ namespace SomerenUI
         {
             InitializeComponent();
             this.currentUser = currentUser;
-            currentUser.IsAdmin = true;
+            InitAddButtons();
         }
 
         private void SomerenUI_Load(object sender, EventArgs e)
@@ -37,7 +37,7 @@ namespace SomerenUI
             showPanel("Dashboard");
         }
 
-        private void InitAddButtons(User user)
+        private void InitAddButtons()
         {
             if (currentUser.IsAdmin == false)
             {
@@ -203,6 +203,7 @@ namespace SomerenUI
             DrinkDialog drinkDialog = new DrinkDialog(selectedDrink);
             drinkDialog.Show();
             btn_Edit_Drink.Enabled = false;
+            btn_Add_Drink.Enabled = false;
         }
 
         private void btn_Remove_Drink_Click(object sender, EventArgs e)
@@ -212,6 +213,7 @@ namespace SomerenUI
             Drink_Service drinkSer = new Drink_Service();
             drinkSer.DeleteDrink(selectedDrink.Name);
             btn_Remove_Drink.Enabled = false;
+            btn_Edit_Drink.Enabled = false;
         }
 
         private void btn_Add_Drink_Click(object sender, EventArgs e)
@@ -227,6 +229,7 @@ namespace SomerenUI
             ActivityDialog activityDialog = new ActivityDialog(selectedActivity);
             activityDialog.Show();
             btn_Edit_Activities.Enabled = false;
+            btn_Add_Activity.Enabled = false;
         }
 
         private void listViewActivities_SelectedIndexChanged(object sender, EventArgs e)
@@ -247,7 +250,10 @@ namespace SomerenUI
             if(dr == DialogResult.Yes)
             {
                 Activity_Service actService = new Activity_Service();
-                actService.DeleteActivity(selectedActivity.Id);            }
+                actService.DeleteActivity(selectedActivity.Id);
+            }
+            btn_Edit_Activities.Enabled = false;
+            btn_Add_Activity.Enabled = false;
         }
 
         private void btn_Add_Activity_Click(object sender, EventArgs e)

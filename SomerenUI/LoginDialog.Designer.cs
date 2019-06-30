@@ -127,6 +127,7 @@
             this.Controls.Add(this.textBox_Username);
             this.Controls.Add(this.lbl_Login);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Location = new System.Drawing.Point(960, 540);
             this.Name = "LoginDialog";
             this.Text = "LoginDialog";
             this.ResumeLayout(false);
