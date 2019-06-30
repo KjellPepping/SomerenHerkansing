@@ -9,38 +9,36 @@ using System.Threading.Tasks;
 
 namespace SomerenLogic
 {
-    public class Drink_Service
+    public class Room_Service
     {
-        Drink_DAO drink_db = new Drink_DAO();
+        Room_DAO room_db = new Room_DAO();
 
-        public List<Drink> GetDrinks()
+        public List<Room> Getrooms()
         {
             try
             {
-                List<Drink> Drinks = drink_db.Db_Get_All_Drinks();
-                return Drinks;
+                List<Room> rooms = room_db.Db_Get_All_Rooms();
+                return rooms;
             }
             catch (Exception)
             {
                 throw new Exception("Someren couldn't connect to the database");
             }
-
         }
 
-        public void UpdateDrink(Drink drink)
+        public void UpdateRoom(Room Room)
         {
-            drink_db.UpdateDrink(drink);
+            room_db.UpdateRoom(Room);
         }
 
-        public void AddDrink(Drink drink)
+        public void DeleteRoom(int id)
         {
-            drink_db.AddDrink(drink);
+            room_db.DeleteRoom(id);
         }
 
-
-        public void DeleteDrink(string drinkName)
+        public void AddRoom(Room Room)
         {
-            drink_db.DeleteDrink(drinkName);
+            room_db.AddRoom(Room);
         }
     }
 }

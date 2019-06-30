@@ -17,10 +17,12 @@ namespace SomerenUI
         private User currentUser;
         private List<Drink> drinks = new List<Drink>();
         private List<Activity> activities = new List<Activity>();
+        private List<Room> rooms = new List<Room>();
 
         SomerenLogic.Student_Service studService = new SomerenLogic.Student_Service();
         SomerenLogic.Drink_Service drinkService = new SomerenLogic.Drink_Service();
         SomerenLogic.Activity_Service actService = new SomerenLogic.Activity_Service();
+        SomerenLogic.Room_Service roomService = new SomerenLogic.Room_Service();
 
 
         public SomerenUI(User currentUser)
@@ -54,6 +56,7 @@ namespace SomerenUI
                 pnl_Dashboard.Show();
                 img_Dashboard.Show();
                 pnl_Activities.Hide();
+                pnl_Rooms.Hide();
             }
             else if(panelName == "Students")
             {
@@ -61,6 +64,7 @@ namespace SomerenUI
                 img_Dashboard.Hide();
                 pnl_Drinks.Hide();
                 pnl_Activities.Hide();
+                pnl_Rooms.Hide();
 
                 pnl_Students.Show();
 
@@ -83,6 +87,7 @@ namespace SomerenUI
                 img_Dashboard.Hide();
                 pnl_Students.Hide();
                 pnl_Activities.Hide();
+                pnl_Rooms.Hide();
 
                 pnl_Drinks.Show();
 
@@ -106,6 +111,7 @@ namespace SomerenUI
                 img_Dashboard.Hide();
                 pnl_Students.Hide();
                 pnl_Drinks.Hide();
+                pnl_Rooms.Hide();
 
                 pnl_Activities.Show();
 
@@ -121,6 +127,31 @@ namespace SomerenUI
                     item.SubItems.Add(a.countMentors.ToString());
                     item.SubItems.Add(a.Id.ToString());
                     item.SubItems.Add(a.Description);
+                    listViewActivities.Items.Add(item);
+                }
+            }
+
+            else if (panelName == "Rooms")
+            {
+                pnl_Dashboard.Hide();
+                img_Dashboard.Hide();
+                pnl_Students.Hide();
+                pnl_Drinks.Hide();
+                pnl_Activities.Hide();
+
+                pnl_Rooms.Show();
+
+
+                List<Room> roomList = roomService.Getrooms();
+                rooms = roomList;
+
+                lv_Rooms.Items.Clear();
+
+                foreach (SomerenModel.Room r in roomList)
+                {
+                    ListViewItem item = new ListViewItem(r.Number.ToString());
+                    item.SubItems.Add(r.Capacity.ToString());
+                    item.SubItems.Add(r.Type.ToString());
                     listViewActivities.Items.Add(item);
                 }
             }
@@ -223,6 +254,16 @@ namespace SomerenUI
         {
             ActivityDialog activityDialog = new ActivityDialog();
             activityDialog.Show();
+        }
+
+        private void roomsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            showPanel("Rooms");
+        }
+
+        private void listView1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }   
 }
