@@ -19,8 +19,8 @@ namespace SomerenUI
             User user = new User();
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            //Application.Run(new LoginDialog());
-            Application.Run(new SomerenUI(user));
+            Application.Run(new LoginDialog());
+            //Application.Run(new SomerenUI(user));
         }
     }
 }

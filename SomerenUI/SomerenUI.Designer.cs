@@ -28,10 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.ListViewItem listViewItem13 = new System.Windows.Forms.ListViewItem("");
+            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem("");
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SomerenUI));
-            System.Windows.Forms.ListViewItem listViewItem14 = new System.Windows.Forms.ListViewItem("");
-            System.Windows.Forms.ListViewItem listViewItem15 = new System.Windows.Forms.ListViewItem("");
+            System.Windows.Forms.ListViewItem listViewItem2 = new System.Windows.Forms.ListViewItem("");
+            System.Windows.Forms.ListViewItem listViewItem3 = new System.Windows.Forms.ListViewItem("");
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.dashboardToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dashboardToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
@@ -73,6 +73,8 @@
             this.ActivityDesc = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.lbl_Activities = new System.Windows.Forms.Label();
+            this.lbl_Act_Info = new System.Windows.Forms.Label();
+            this.lbl_Drink_Info = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.pnl_Dashboard.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.img_Dashboard)).BeginInit();
@@ -99,7 +101,7 @@
             this.menuStrip1.Size = new System.Drawing.Size(962, 27);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
-
+            // 
             // dashboardToolStripMenuItem
             // 
             this.dashboardToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -207,7 +209,7 @@
             this.studentDOB});
             this.listViewStudents.HideSelection = false;
             this.listViewStudents.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem13});
+            listViewItem1});
             this.listViewStudents.Location = new System.Drawing.Point(16, 42);
             this.listViewStudents.Name = "listViewStudents";
             this.listViewStudents.Size = new System.Drawing.Size(766, 307);
@@ -252,6 +254,7 @@
             // 
             // pnl_Drinks
             // 
+            this.pnl_Drinks.Controls.Add(this.lbl_Drink_Info);
             this.pnl_Drinks.Controls.Add(this.btn_Add_Drink);
             this.pnl_Drinks.Controls.Add(this.btn_Remove_Drink);
             this.pnl_Drinks.Controls.Add(this.btn_Edit_Drink);
@@ -303,7 +306,7 @@
             this.DrinkSupply});
             this.listViewDrinks.HideSelection = false;
             this.listViewDrinks.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem14});
+            listViewItem2});
             this.listViewDrinks.Location = new System.Drawing.Point(16, 42);
             this.listViewDrinks.Name = "listViewDrinks";
             this.listViewDrinks.Size = new System.Drawing.Size(766, 307);
@@ -349,6 +352,7 @@
             // 
             // pnl_Activities
             // 
+            this.pnl_Activities.Controls.Add(this.lbl_Act_Info);
             this.pnl_Activities.Controls.Add(this.btn_Add_Activity);
             this.pnl_Activities.Controls.Add(this.btn_Remove_Activity);
             this.pnl_Activities.Controls.Add(this.btn_Edit_Activities);
@@ -401,7 +405,7 @@
             this.ActivityDesc});
             this.listViewActivities.HideSelection = false;
             this.listViewActivities.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem15});
+            listViewItem3});
             this.listViewActivities.Location = new System.Drawing.Point(16, 42);
             this.listViewActivities.Name = "listViewActivities";
             this.listViewActivities.Size = new System.Drawing.Size(766, 307);
@@ -449,6 +453,24 @@
             this.lbl_Activities.Size = new System.Drawing.Size(115, 30);
             this.lbl_Activities.TabIndex = 3;
             this.lbl_Activities.Text = "Activities";
+            // 
+            // lbl_Act_Info
+            // 
+            this.lbl_Act_Info.AutoSize = true;
+            this.lbl_Act_Info.Location = new System.Drawing.Point(16, 429);
+            this.lbl_Act_Info.Name = "lbl_Act_Info";
+            this.lbl_Act_Info.Size = new System.Drawing.Size(314, 15);
+            this.lbl_Act_Info.TabIndex = 9;
+            this.lbl_Act_Info.Text = "Selecteer een Activity door op de eerste kolom te klikken.";
+            // 
+            // lbl_Drink_Info
+            // 
+            this.lbl_Drink_Info.AutoSize = true;
+            this.lbl_Drink_Info.Location = new System.Drawing.Point(16, 434);
+            this.lbl_Drink_Info.Name = "lbl_Drink_Info";
+            this.lbl_Drink_Info.Size = new System.Drawing.Size(308, 15);
+            this.lbl_Drink_Info.TabIndex = 10;
+            this.lbl_Drink_Info.Text = "Selecteer een Drink door op de eerste kolom te klikken.";
             // 
             // SomerenUI
             // 
@@ -528,6 +550,8 @@
         private System.Windows.Forms.Button btn_Add_Drink;
         private System.Windows.Forms.Button btn_Add_Activity;
         private System.Windows.Forms.Button btn_Remove_Activity;
+        private System.Windows.Forms.Label lbl_Drink_Info;
+        private System.Windows.Forms.Label lbl_Act_Info;
     }
 }
 
