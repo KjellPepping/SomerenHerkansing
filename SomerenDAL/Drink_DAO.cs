@@ -25,7 +25,7 @@ namespace SomerenDAL
 
         public List<Drink> Db_Get_All_Drinks()
         {
-            string query = "SELECT Naam, Verkoopprijs, Alcohol, Omzet, Voorraad, ID FROM Drankjes";
+            string query = "SELECT Naam, Verkoopprijs, Alcohol, Omzet, Voorraad, ID FROM Drankjes WHERE Voorraad > 1, Verkoopprijs > 1 ORDER BY Vooraad, Verkoopprijs";
             SqlParameter[] sqlParameters = new SqlParameter[0];
             return ReadTables(ExecuteSelectQuery(query, sqlParameters));
         }
